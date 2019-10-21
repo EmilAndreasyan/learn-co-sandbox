@@ -9,6 +9,7 @@ class EdenEvents::Month
   end
   
   def self.all
+    EdenEvents::Scraper.scrape_months if @@all.empty?
     @@all
 end
 

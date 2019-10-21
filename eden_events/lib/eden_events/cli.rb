@@ -3,7 +3,7 @@ require 'pry'
 class EdenEvents::CLI
   
   def call
-    puts "\nwelcome to Eden\n"
+    puts "\nWelcome to Eden\n"
     get_months
     list_months
     get_user_month
@@ -11,6 +11,7 @@ class EdenEvents::CLI
   
   def get_months
     #@months = ['July, 2019', 'August, 2019', 'September, 2019', 'October, 2019']
+    EdenEvents::Scraper.scrape_months
     @months = EdenEvents::Month.all
     #binding.pry
   end
@@ -33,7 +34,7 @@ class EdenEvents::CLI
   
   def show_events_for(chosen_month)
     month = @months[chosen_month - 1]
-    puts "Here are events for #{month}"
+    puts "Here are events for #{month.name}"
     binding.pry
   end
 end
