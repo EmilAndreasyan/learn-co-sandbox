@@ -13,7 +13,6 @@ class EdenEvents::CLI
   
   def list_months
     @months.each.with_index do |month, index|
-    #binding.pry
     puts "#{index + 1} #{month}"
   end
   end
