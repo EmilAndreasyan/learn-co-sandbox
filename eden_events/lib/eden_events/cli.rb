@@ -15,19 +15,23 @@ class EdenEvents::CLI
   
   def list_months
     puts "Choose a month to see events"
-    @months.each.with_index do |month, index|
+    @months.each.with_index(1) do |month, index|
     puts "#{index + 1}. #{month}"
   end
   end
   
   def get_user_month
-    chosen_month = gets.strip
-    #binding.pry
-    # if valid_input(chosen_month)
-    # end
+    chosen_month = gets.strip.to_i
+   show_events_for(chosen_month) if valid_input(chosen_month, @months)
   end
   
   def valid_input(input, date)
     input.to_i <= data.length && input.to_i > 0
+  end
+  
+  def show_events_for(chosen_month)
+    month = @month[chosen_month - 1]
+    puts "Here are events for #{month}"
+    binding.pry
   end
 end
