@@ -2,4 +2,4 @@ require_relative '../lib/eden_events'
 #!/usr/bin/env ruby
 
 
-EdenEvents::CLI.new.list_months
+EdenEvents::CLI.new.call
