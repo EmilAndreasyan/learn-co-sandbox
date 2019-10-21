@@ -10,13 +10,15 @@ class EdenEvents::CLI
   end
   
   def get_months
-    @months = ['July, 2019', 'August, 2019', 'September, 2019', 'October, 2019', ]
+    #@months = ['July, 2019', 'August, 2019', 'September, 2019', 'October, 2019']
+    @months = EdenEvents::Month.all
+    #binding.pry
   end
   
   def list_months
     puts "Choose a month to see events"
     @months.each.with_index(1) do |month, index|
-    puts "#{index + 1}. #{month}"
+    puts "#{index + 1}. #{month.name}"
   end
   end
   
@@ -30,7 +32,7 @@ class EdenEvents::CLI
   end
   
   def show_events_for(chosen_month)
-    month = @month[chosen_month - 1]
+    month = @months[chosen_month - 1]
     puts "Here are events for #{month}"
     binding.pry
   end
