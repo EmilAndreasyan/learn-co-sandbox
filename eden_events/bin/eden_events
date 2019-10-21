@@ -1,0 +1,5 @@
+require_relative '../lib/eden_events'
+#!/usr/bin/env ruby
+
+
+EdenEvents::CLI.new.call
